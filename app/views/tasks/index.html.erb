@@ -1,0 +1,13 @@
+
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+  <strong>
+    <%= task[:task]%>
+  </strong>
+
+  <%= task[:status]%>
+  </li>
+  <% end %>
+</ul>
