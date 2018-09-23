@@ -1,0 +1,22 @@
+
+
+
+<%= form_with model: @task do |f| %>
+<p> Please enter your tasks here to save them to the database:</p>
+
+<%= f.label :action %><br>
+<%= f.text_field :action %>
+
+<%= f.label :description %><br>
+<%= f.text_field :description %>
+
+<%= f.label :completion_date %><br>
+<%= f.text_field :completion_date %>
+
+<%= f.label :completed %><br>
+<%= f.check_box :completed %>
+
+
+<%= f.submit "Save Task", class: "task-button" %>
+
+<% end %>
