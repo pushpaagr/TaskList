@@ -67,8 +67,11 @@ class TasksController < ApplicationController
 
     if @task.status_completed == false
       @task.update(status_completed: true)
+      @task.update(task_marked_completion_date: Date.today)
     elsif @task.status_completed == true
       @task.update(status_completed: false)
+      @task.update(task_marked_completion_date: nil)
+
     end
 
     redirect_to tasks_path
