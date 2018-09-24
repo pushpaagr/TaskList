@@ -1,8 +1,23 @@
 <h2>Task Details</h2>
 
 <li>
-<%= @task.action%>
-<%= @task.description%>
-<%= @task.completion_date%>
+
+
+  <p>Task Name:
+    <%= @task.action%>
+  </p>
+
+
+  <p>Description:
+    <%= @task.description%>
+  </p>
+
+  <p> Completion date:
+    <%= @task.completion_date%>
+  </p>
+  
+  <p>Acutal completion date:
+    <%= @task.task_marked_completion_date %>
+  </p>
 
 </li>
