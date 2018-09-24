@@ -22,6 +22,8 @@ class TasksController < ApplicationController
     filtered_task_params = task_params
     @task = Task.new(task_params)
 
+    @task.status_completed = false
+
     is_successful = @task.save
 
     if is_successful
@@ -59,9 +61,19 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
-  def completed
-    @task = Task.where(complete: false)
+
+  def complete
+    @task = Task.find(params[:id])
+
+    if @task.status_completed == false
+      @task.update(status_completed: true)
+    elsif @task.status_completed == true
+      @task.update(status_completed: false)
+    end
+
+    redirect_to tasks_path
   end
+
 
   private
 
@@ -69,7 +81,8 @@ class TasksController < ApplicationController
     return params.require(:task).permit(
       :action,
       :description,
-      :completion_date
+      :completion_date,
+      :status_completed
     )
   end
 end

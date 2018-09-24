@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :tasks
 
-get 'completed', to: 'tasks#completed', as: 'completed_tasks'
+  patch '/tasks/:id/complete', to: 'tasks#complete', as: 'complete_task'
 
 
 
